@@ -126,3 +126,78 @@ class Doctor:  # ID, Name, Specialization, Working Time, Qualification, Room Num
             doctors_file.write(line)
             doctors_file.close()
 
+
+class Management:
+    def displayMenu(self):  # to display the menu shown in the Sample Run section.
+        while True:
+            print("Welcome to Alberta Hospital (AH) Management system")
+            print("Select from the following options, or select 0 to stop: ")
+            print("1 - 	Doctors")
+            print("2 - 	Facilities")
+            print("3 - 	Laboratories")
+            print("4 - 	Patients")
+            try:
+                option = int(input())
+            except ValueError:
+                print("invalid option, please try again")
+                continue
+
+            if option == 1:
+                self.doctorMenu()
+            elif option == 2:
+                self.facilitiesMenu()
+            elif option == 3:
+                self.laboratoriesMenu()
+            elif option == 4:
+                self.patientsMenu()
+            elif option == 0:
+                break
+
+    def doctorMenu(self):
+        while True:  # Doctors menu
+            print("Doctors Menu:")
+            print("1 - Display Doctors list")
+            print("2 - Search for doctor by ID")
+            print("3 - Search for doctor by name")
+            print("4 - Add doctor")
+            print("5 - Edit doctor info")
+            print("6 - Back to the Main Menu\n")
+
+            try:
+                option = int(input())
+            except ValueError:
+                print("invalid option, please try again")
+                continue
+
+            if option == 1:
+                doctor.displayDoctorsList()
+                print("\nBack to the previous menu\n")
+            elif option == 2:
+                doctor.searchDoctorById()
+                print("\nBack to the previous menu\n")
+            elif option == 3:
+                doctor.searchDoctorByName()
+                print("\nBack to the previous menu\n")
+            elif option == 4:
+                doctor.enterDrInfo()
+                print("\nBack to the previous menu\n")
+            elif option == 5:
+                doctor.editDoctorInfo()
+                print("\nBack to the previous menu\n")
+            elif option == 6:
+                print("\nBack to the previous menu\n")
+                break
+
+    def facilitiesMenu(self):
+        pass
+
+    def laboratoriesMenu(self):
+        pass
+
+    def patientsMenu(self):
+        pass
+
+
+doctor = Doctor()
+management = Management()
+management.displayMenu
